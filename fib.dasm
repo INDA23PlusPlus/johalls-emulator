@@ -1,0 +1,22 @@
+movi a 0
+movi b 1
+movi i 10
+
+movi k -1
+
+loop:
+print a
+mov c a
+add c b
+
+mov a b
+mov b c
+
+add i k
+
+jz i brk
+
+jmp loop
+
+brk:
+

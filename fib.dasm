@@ -1,10 +1,10 @@
 movi a 0
 movi b 1
-movi i 10
+movi i 91
 
-movi k -1
+movi k 1
 
-loop:
+lp:
 print a
 mov c a
 add c b
@@ -12,11 +12,11 @@ add c b
 mov a b
 mov b c
 
-add i k
+sub i k
 
-jz i brk
+jz i br
 
-jmp loop
+jmp lp
 
-brk:
+br:
 

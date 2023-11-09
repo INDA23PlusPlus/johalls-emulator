@@ -65,7 +65,7 @@ int main(int argc, char **argv) {
                 break;
             case JZ:
                 arg2 -= (arg2 & 128) * 2; // twos complement
-                if (variables[arg1] == 0) i += arg2 - 1;
+                i += -(variables[arg1] == 0) & (arg2 - 1);
                 break;
             case PUSH:
                 assert(stack_idx < STACK_SIZE);

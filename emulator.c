@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
     fseek(inp, 0, SEEK_SET);
     assert(!ferror(inp));
 
-    uint8_t *contents = malloc(length);
+    uint8_t contents[length];
     fread(contents, length, length, inp);
     assert(!ferror(inp));
 
@@ -81,6 +81,6 @@ int main(int argc, char **argv) {
         }
     }
 
-    free(contents);
+    // free(contents);
     fclose(inp);
 }

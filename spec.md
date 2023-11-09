@@ -34,7 +34,7 @@ Each instruction is 3 bytes, where the first byte encodes the instruction and th
 `pop = 7`
 `print = 8`
 
-Registers are encoded with ascii.
+Registers are encoded as 8 bit indices on [0-25].
 Integer literals are encoded as 8 bit twos complement integers.
 Jump destinations are encoded as 8 bit twos complement instruction offsets in the code (this means you can't jump more than 128 instructions back, or more than 127 instructions forward).
 Any instructions that take one argument are encoded as having a second argument of zero.

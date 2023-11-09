@@ -28,25 +28,25 @@ for i, parts in enumerate(filtered):
             if val < 0: val += 256
             assert parts[1].isalpha()
             assert len(parts[1]) == 1
-            encoded_program.append((0, ord(parts[1].lower()), int(parts[2])))
+            encoded_program.append((0, ord(parts[1].lower()) - ord('a'), int(parts[2])))
         case "mov":
             assert parts[1].isalpha()
             assert len(parts[1]) == 1
             assert parts[2].isalpha()
             assert len(parts[2]) == 1
-            encoded_program.append((1, ord(parts[1].lower()), ord(parts[2].lower())))
+            encoded_program.append((1, ord(parts[1].lower()) - ord('a'), ord(parts[2].lower()) - ord('a')))
         case "add":
             assert parts[1].isalpha()
             assert len(parts[1]) == 1
             assert parts[2].isalpha()
             assert len(parts[2]) == 1
-            encoded_program.append((2, ord(parts[1].lower()), ord(parts[2].lower())))
+            encoded_program.append((2, ord(parts[1].lower()) - ord('a'), ord(parts[2].lower()) - ord('a')))
         case "sub":
             assert parts[1].isalpha()
             assert len(parts[1]) == 1
             assert parts[2].isalpha()
             assert len(parts[2]) == 1
-            encoded_program.append((3, ord(parts[1].lower()), ord(parts[2].lower())))
+            encoded_program.append((3, ord(parts[1].lower()) - ord('a'), ord(parts[2].lower()) - ord('a')))
         case "jmp":
             assert parts[1].isalpha()
             offs = labels[parts[1]] - i
@@ -60,19 +60,19 @@ for i, parts in enumerate(filtered):
             offs = labels[parts[2]] - i
             assert -128 <= offs < 128
             if offs < 0: offs += 256
-            encoded_program.append((5, ord(parts[1].lower()), offs))
+            encoded_program.append((5, ord(parts[1].lower()) - ord('a'), offs))
         case "push":
             assert parts[1].isalpha()
             assert len(parts[1]) == 1
-            encoded_program.append((6, ord(parts[1].lower()), 0))
+            encoded_program.append((6, ord(parts[1].lower()) - ord('a'), 0))
         case "pop":
             assert parts[1].isalpha()
             assert len(parts[1]) == 1
-            encoded_program.append((7, ord(parts[1].lower()), 0))
+            encoded_program.append((7, ord(parts[1].lower()) - ord('a'), 0))
         case "print":
             assert parts[1].isalpha()
             assert len(parts[1]) == 1
-            encoded_program.append((8, ord(parts[1].lower()), 0))
+            encoded_program.append((8, ord(parts[1].lower()) - ord('a'), 0))
 
 
 with open(sys.argv[2], "wb") as output_file:
